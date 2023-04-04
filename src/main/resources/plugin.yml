@@ -1,0 +1,7 @@
+name: DiscordNamer
+main: com.gbaranski.discordNamer.Main
+author: gbaranski
+api-version: 1.19
+version: 1.0
+
+depend: [PlaceholderAPI, DiscordSRV] # If your plugin requires PlaceholderAPI, to work, use this.
