@@ -34,6 +34,10 @@ public final class Main extends JavaPlugin implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         String discordName = "%discordsrv_user_nickname%";
         discordName = PlaceholderAPI.setPlaceholders(event.getPlayer(), discordName);
+        if (discordName.isBlank()) {
+            discordName = "%discordsrv_user_name%";
+            discordName = PlaceholderAPI.setPlaceholders(event.getPlayer(), discordName);
+        }
         String displayName = String.format("&e%s&c(&6%s&c)&f", event.getPlayer().getName(), discordName);
         displayName = ChatColor.translateAlternateColorCodes('&', displayName);
         event.getPlayer().setDisplayName(displayName);
