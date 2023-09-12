@@ -8,6 +8,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import net.essentialsx.api.v2.services.discordlink.DiscordLinkService;
 
 public final class Main extends JavaPlugin implements Listener {
     @Override
@@ -32,6 +33,8 @@ public final class Main extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onJoin(PlayerJoinEvent event) {
+        final DiscordLinkService linkApi = Bukkit.getServicesManager().load(DiscordLinkService.class);
+
         String discordName = "%discordsrv_user_nickname%";
         discordName = PlaceholderAPI.setPlaceholders(event.getPlayer(), discordName);
         if (discordName.isBlank()) {
